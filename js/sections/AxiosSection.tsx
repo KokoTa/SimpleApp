@@ -1,16 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import sectionStyle from '../global/sectionStyle';
-import request from '../config/request';
+import {getTestApi} from '../api';
 
 function AxiosSection(props: any) {
+  const [requestResult, setRequestResult] = useState('');
+
   const handleAxiosRequest = async () => {
     try {
-      const res = await fetch(
-        'https://api.devio.org/uapi/popular?q=java&pageIndex=1&pageSize=25',
-      );
-      console.log(res);
+      const res = await getTestApi();
+      setRequestResult(JSON.stringify(res.data));
     } catch (error) {
       console.log(error);
     }
@@ -24,6 +24,9 @@ function AxiosSection(props: any) {
         onPress={handleAxiosRequest}>
         <Text>发送请求</Text>
       </TouchableOpacity>
+      <ScrollView style={sectionStyle.data}>
+        <Text>{requestResult}</Text>
+      </ScrollView>
     </View>
   );
 }

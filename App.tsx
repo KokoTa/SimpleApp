@@ -9,11 +9,18 @@
  */
 
 import React from 'react';
-import {ScrollView, useColorScheme, View} from 'react-native';
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  useColorScheme,
+  View,
+} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import AxiosSection from './js/components/AxiosSection';
-import StorageSection from './js/components/StorageSection';
+import LoginSection from './js/sections/LoginSection';
+import AxiosSection from './js/sections/AxiosSection';
+import StorageSection from './js/sections/StorageSection';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -23,15 +30,24 @@ const App = () => {
   };
 
   return (
-    <ScrollView
-      contentInsetAdjustmentBehavior="automatic"
-      style={backgroundStyle}>
-      <View>
-        <StorageSection title="数据存储" />
-        <AxiosSection title="发送请求" />
-      </View>
-    </ScrollView>
+    <SafeAreaView style={styles.root}>
+      <ScrollView
+        contentInsetAdjustmentBehavior="automatic"
+        style={backgroundStyle}>
+        <View>
+          <StorageSection title="数据存储" />
+          <AxiosSection title="发送请求" />
+          <LoginSection title="登录模块" />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+});
 
 export default App;

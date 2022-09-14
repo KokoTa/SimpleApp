@@ -23,4 +23,7 @@ export default StyleSheet.create({
     borderColor: '#eee',
     marginBottom: 5,
   },
+  data: {
+    height: 200,
+  },
 });

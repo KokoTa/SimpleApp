@@ -1,13 +1,8 @@
 import axios from 'axios';
-import requestConfig from './requestConfig';
 
 const request = axios.create({
-  baseURL: 'https://api.devio.org',
+  baseURL: 'http://localhost:4523/m1',
   timeout: 10000,
-  headers: {
-    'course-flag': requestConfig.headers['course-flag'],
-    'auth-token': requestConfig.headers['auth-token'],
-  },
 });
 
 export default request;
