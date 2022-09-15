@@ -1,0 +1,39 @@
+/* tslint:disable */
+/* eslint-disable */
+
+import React, { FunctionComponent } from 'react';
+import { ViewProps } from 'react-native';
+import { Svg, GProps, Path } from 'react-native-svg';
+import { getIconColor } from './helper';
+
+interface Props extends GProps, ViewProps {
+  size?: number;
+  color?: string | string[];
+}
+
+let IconIndexAuth: FunctionComponent<Props> = ({ size, color, ...rest }) => {
+  return (
+    <Svg viewBox="0 0 1024 1024" width={size} height={size} {...rest}>
+      <Path
+        d="M528.96 92.58666667L903.04 302.93333333v418.45333334L528.96 931.94666667 154.77333333 721.49333333V302.93333333l374.18666667-210.34666666m0-60.37333334l-426.66666667 240v480l426.66666667 240 426.66666667-240v-480l-426.66666667-240z"
+        fill={getIconColor(color, 0, '#515151')}
+      />
+      <Path
+        d="M547.09333333 658.34666667c0 10.13333333-8.10666667 18.34666667-18.24 18.34666666-10.13333333 0-18.24-8.21333333-18.24-18.34666666v-81.06666667c0-10.13333333 8.10666667-18.34666667 18.24-18.34666667v-3.09333333c10.13333333 0 18.24 11.30666667 18.24 21.44v81.06666667z m0 0"
+        fill={getIconColor(color, 1, '#515151')}
+      />
+      <Path
+        d="M694.08 675.30666667c0 7.57333333-6.08 13.65333333-13.65333333 13.65333333H376.96c-7.57333333 0-13.65333333-6.08-13.65333333-13.65333333 0-7.57333333 6.08-13.65333333 13.65333333-13.65333334H680.53333333c7.46666667 0 13.54666667 6.08 13.54666667 13.65333334z m14.4-309.65333334c0-16.85333333-13.54666667-30.08-30.50666667-30.08H379.84c-16.85333333 0-30.50666667 13.22666667-30.50666667 30.08v155.52h359.04V365.65333333zM349.44 563.62666667c0 16.85333333 13.54666667 30.82666667 30.50666667 30.82666666h298.13333333c16.85333333 0 30.50666667-13.86666667 30.50666667-30.82666666v-15.14666667H349.44v15.14666667z m0 0"
+        fill={getIconColor(color, 2, '#515151')}
+      />
+    </Svg>
+  );
+};
+
+IconIndexAuth.defaultProps = {
+  size: 18,
+};
+
+IconIndexAuth = React.memo ? React.memo(IconIndexAuth) : IconIndexAuth;
+
+export default IconIndexAuth;

@@ -21,6 +21,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import LoginSection from './js/sections/LoginSection';
 import AxiosSection from './js/sections/AxiosSection';
 import StorageSection from './js/sections/StorageSection';
+import IconSection from './js/sections/IconSection';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -38,6 +39,7 @@ const App = () => {
           <StorageSection title="数据存储" />
           <AxiosSection title="发送请求" />
           <LoginSection title="登录模块" />
+          <IconSection title="字体图标" />
         </View>
       </ScrollView>
     </SafeAreaView>

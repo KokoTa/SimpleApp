@@ -85,5 +85,6 @@ const styles = StyleSheet.create({
   },
   helpButton: {
     alignItems: 'center',
+    paddingBottom: 10,
   },
 });
