@@ -11,7 +11,7 @@ import React, {useState} from 'react';
 import LoginInput from '../components/LoginInput';
 import NavBar from '../components/NavBar';
 
-export default function Login(props: any) {
+export default function LoginSection(props: any) {
   const {title} = props;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

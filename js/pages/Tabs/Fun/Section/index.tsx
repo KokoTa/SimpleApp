@@ -18,12 +18,13 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import LoginSection from './js/sections/LoginSection';
-import AxiosSection from './js/sections/AxiosSection';
-import StorageSection from './js/sections/StorageSection';
-import IconSection from './js/sections/IconSection';
+import LoginSection from '../../../../sections/LoginSection';
+import AxiosSection from '../../../../sections/AxiosSection';
+import StorageSection from '../../../../sections/StorageSection';
+import IconSection from '../../../../sections/IconSection';
+import TimerSection from '../../../../sections/TimerSection';
 
-const App = () => {
+const Section = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -39,7 +40,8 @@ const App = () => {
           <StorageSection title="数据存储" />
           <AxiosSection title="发送请求" />
           <LoginSection title="登录模块" />
-          <IconSection title="字体图标" />
+          <IconSection title="图标模块" />
+          <TimerSection title="定时器模块" />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -52,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Section;

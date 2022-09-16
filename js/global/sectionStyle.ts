@@ -12,6 +12,11 @@ export default StyleSheet.create({
     fontWeight: '600',
     paddingVertical: 10,
   },
+  sectionSubTitle: {
+    fontSize: 16,
+    fontWeight: '400',
+    paddingVertical: 10,
+  },
   sectionDescription: {
     fontSize: 18,
     fontWeight: '400',
