@@ -9,34 +9,56 @@ import Hot from '../pages/Tabs/Fun/Hot';
 import Icon from 'react-native-vector-icons/AntDesign';
 import NavigationUtil from './NavigationUtil';
 import Desc from '../pages/Tabs/Fun/Desc';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
-import {View} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {StyleSheet} from 'react-native';
+import {Provider} from 'react-redux';
+import store from '../redux';
 
-const Top = createMaterialTopTabNavigator();
+const topStyles = StyleSheet.create({
+  tabBarItemStyle: {
+    padding: 0,
+  },
+  tabBarStyle: {
+    backgroundColor: '#000',
+  },
+  tabBarIndicatorStyle: {
+    backgroundColor: '#fff',
+    height: 5,
+  },
+  tabBarLabelStyle: {
+    textTransform: 'none', // 取消大写
+  },
+});
 
-const TabStackTopNav = () => {
-  const safeArea = useSafeAreaInsets();
-  return (
-    <View style={{flex: 1, top: safeArea.top}}>
-      <Top.Navigator initialRouteName="Top">
-        <Top.Screen
-          name="Desc"
-          component={Desc}
-          options={{tabBarLabel: 'Home'}}
-        />
-        <Top.Screen
-          name="About"
-          component={About}
-          options={{tabBarLabel: 'Updates'}}
-        />
-      </Top.Navigator>
-    </View>
+const TabStackTopNav = () =>
+  NavigationUtil.createTopNav(
+    [
+      {
+        name: 'Desc',
+        screen: Desc,
+        options: {
+          tabBarLabel: 'Desc',
+        },
+      },
+      {
+        name: 'About',
+        screen: About,
+        options: {
+          tabBarLabel: 'About',
+        },
+      },
+    ],
+    {
+      lazy: true,
+      tabBarItemStyle: topStyles.tabBarItemStyle,
+      tabBarScrollEnabled: true,
+      tabBarInactiveTintColor: '#eee',
+      tabBarActiveTintColor: '#fff',
+      tabBarStyle: topStyles.tabBarStyle,
+      tabBarIndicatorStyle: topStyles.tabBarIndicatorStyle,
+      tabBarLabelStyle: topStyles.tabBarLabelStyle,
+    },
   );
-};
 
 const TabStackNav = () =>
   NavigationUtil.createStackNav([
@@ -107,10 +129,14 @@ const StackNav = () =>
     },
   ]);
 
-export const createApp = () => (
-  <SafeAreaProvider>
-    <NavigationContainer>
-      <StackNav />
-    </NavigationContainer>
-  </SafeAreaProvider>
-);
+export const createApp = () => {
+  return (
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <StackNav />
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </Provider>
+  );
+};

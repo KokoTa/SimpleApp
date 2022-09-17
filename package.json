@@ -17,6 +17,7 @@
     "@react-navigation/material-top-tabs": "^6.2.3",
     "@react-navigation/native": "^6.0.12",
     "@react-navigation/native-stack": "^6.8.0",
+    "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
     "react": "18.1.0",
     "react-native": "0.70.0",
@@ -27,7 +28,10 @@
     "react-native-svg": "^13.1.0",
     "react-native-tab-view": "^3.1.1",
     "react-native-vector-icons": "^9.2.0",
-    "react-native-vector-image": "^0.3.3"
+    "react-native-vector-image": "^0.3.3",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0",
+    "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
