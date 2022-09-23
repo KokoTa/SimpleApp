@@ -14,7 +14,14 @@ function Index() {
 
   const searchByKey = async () => {
     const res = await getTestApi({searchKey});
-    setListData(res.data.data);
+    setRefreshing(true);
+    await new Promise(resolve => {
+      setTimeout(() => {
+        setListData(res.data.data);
+        setRefreshing(false);
+        resolve(null);
+      }, 2000);
+    });
   };
 
   useEffect(() => {
@@ -22,14 +29,12 @@ function Index() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleRefresh = async () => {
-    setRefreshing(true);
-    await searchByKey();
-    setRefreshing(false);
+  const handleRefresh = () => {
+    searchByKey();
   };
 
   return (
-    <SafeAreaView style={styles.root}>
+    <SafeAreaView edges={['top', 'left', 'right']} style={styles.root}>
       <View style={styles.searchWrap}>
         <View style={styles.searchInputWrap}>
           <TextInput
@@ -46,13 +51,11 @@ function Index() {
           />
         </View>
       </View>
-      <View style={styles.listWrap}>
-        <MusicList
-          listData={listData}
-          refreshing={refreshing}
-          onRefresh={handleRefresh}
-        />
-      </View>
+      <MusicList
+        listData={listData}
+        refreshing={refreshing}
+        onRefresh={handleRefresh}
+      />
     </SafeAreaView>
   );
 }
@@ -60,12 +63,12 @@ function Index() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: colors.WHITE,
+    backgroundColor: colors.GRAY,
   },
   searchWrap: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 10,
+    paddingVertical: 50,
   },
   searchInputWrap: {
     width: '60%',
@@ -80,9 +83,6 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     width: '90%',
-  },
-  listWrap: {
-    flexGrow: 1,
   },
 });
 

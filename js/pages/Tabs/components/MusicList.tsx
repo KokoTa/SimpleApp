@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {FlatList, StyleSheet} from 'react-native';
+import {FlatList} from 'react-native';
 import MusicItem from './MusicItem';
 import {RefreshControl} from 'react-native-gesture-handler';
 import colors from '../../../global/colors';
@@ -9,7 +9,6 @@ function MusicList(props: any) {
   const {listData, refreshing, onRefresh} = props;
   return (
     <FlatList
-      style={styles.list}
       data={listData}
       renderItem={MusicItem}
       keyExtractor={item => item.id}
@@ -26,10 +25,6 @@ function MusicList(props: any) {
     />
   );
 }
-
-const styles = StyleSheet.create({
-  list: {},
-});
 
 MusicList.propTypes = {
   listData: PropTypes.array,

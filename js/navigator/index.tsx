@@ -101,6 +101,7 @@ const TabNav = () =>
           tabBarIcon: ({color, size}) => (
             <Icon name="linechart" color={color} size={size} />
           ),
+          headerShown: false,
         },
       },
       {
