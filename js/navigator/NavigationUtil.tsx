@@ -13,7 +13,7 @@ import {
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
 import React from 'react';
-import {StatusBar, View} from 'react-native';
+import {View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 /**
@@ -83,7 +83,6 @@ export default class NavigationUtil {
   ) => {
     const Stack = createNativeStackNavigator();
     this.navigation = useNavigation();
-    StatusBar.setBackgroundColor('red');
     return (
       <Stack.Navigator screenOptions={screenOptions}>
         {stackInfos.map(({name, screen, options}) => (

@@ -13,6 +13,8 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {StyleSheet} from 'react-native';
 import {Provider} from 'react-redux';
 import store from '../redux';
+import Toast from 'react-native-toast-message';
+import colors from '../global/colors';
 
 const topStyles = StyleSheet.create({
   tabBarItemStyle: {
@@ -26,7 +28,7 @@ const topStyles = StyleSheet.create({
     height: 5,
   },
   tabBarLabelStyle: {
-    textTransform: 'none', // 取消大写
+    textTransform: 'none', // 取消安卓大写
   },
 });
 
@@ -80,36 +82,42 @@ const TabStackNav = () =>
   ]);
 
 const TabNav = () =>
-  NavigationUtil.createBottomTabNav([
-    {
-      name: 'Index',
-      screen: Index,
-      options: {
-        tabBarIcon: ({color, size}) => (
-          <Icon name="home" color={color} size={size} />
-        ),
+  NavigationUtil.createBottomTabNav(
+    [
+      {
+        name: 'Index',
+        screen: Index,
+        options: {
+          tabBarIcon: ({color, size}) => (
+            <Icon name="home" color={color} size={size} />
+          ),
+          headerShown: false,
+        },
       },
-    },
-    {
-      name: 'Trending',
-      screen: Trending,
-      options: {
-        tabBarIcon: ({color, size}) => (
-          <Icon name="linechart" color={color} size={size} />
-        ),
+      {
+        name: 'Trending',
+        screen: Trending,
+        options: {
+          tabBarIcon: ({color, size}) => (
+            <Icon name="linechart" color={color} size={size} />
+          ),
+        },
       },
-    },
-    {
-      name: 'TabStackNav',
-      screen: TabStackNav,
-      options: {
-        tabBarIcon: ({color, size}) => (
-          <Icon name="user" color={color} size={size} />
-        ),
-        headerShown: false,
+      {
+        name: 'TabStackNav',
+        screen: TabStackNav,
+        options: {
+          tabBarIcon: ({color, size}) => (
+            <Icon name="user" color={color} size={size} />
+          ),
+          headerShown: false,
+        },
       },
+    ],
+    {
+      tabBarActiveTintColor: colors.PURPLE,
     },
-  ]);
+  );
 
 const StackNav = () =>
   NavigationUtil.createStackNav([
@@ -137,6 +145,7 @@ export const createApp = () => {
           <StackNav />
         </NavigationContainer>
       </SafeAreaProvider>
+      <Toast />
     </Provider>
   );
 };

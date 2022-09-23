@@ -1,10 +1,11 @@
 import {createSlice, Dispatch} from '@reduxjs/toolkit';
 import {RootState} from '../..';
+import colors from '../../../global/colors';
 
 const themeSlice = createSlice({
   name: 'theme',
   initialState: {
-    color: 'green',
+    color: colors.PURPLE,
   },
   reducers: {
     onThemeColorChange(state, action) {
