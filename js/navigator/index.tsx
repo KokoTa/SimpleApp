@@ -4,8 +4,6 @@ import Index from '../pages/Tabs';
 import Trending from '../pages/Tabs/Trending';
 import About from '../pages/Tabs/Fun/About';
 import Login from '../pages/Login';
-import Section from '../pages/Tabs/Fun/Section';
-import Hot from '../pages/Tabs/Fun/Hot';
 import Icon from 'react-native-vector-icons/AntDesign';
 import NavigationUtil from './NavigationUtil';
 import Desc from '../pages/Tabs/Fun/Desc';
@@ -21,10 +19,10 @@ const topStyles = StyleSheet.create({
     padding: 0,
   },
   tabBarStyle: {
-    backgroundColor: '#000',
+    backgroundColor: colors.WHITE,
   },
   tabBarIndicatorStyle: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.PURPLE,
     height: 5,
   },
   tabBarLabelStyle: {
@@ -54,32 +52,33 @@ const TabStackTopNav = () =>
       lazy: true,
       tabBarItemStyle: topStyles.tabBarItemStyle,
       tabBarScrollEnabled: true,
-      tabBarInactiveTintColor: '#eee',
-      tabBarActiveTintColor: '#fff',
+      tabBarInactiveTintColor: colors.LIGHT_PURPLE,
+      tabBarActiveTintColor: colors.PURPLE,
       tabBarStyle: topStyles.tabBarStyle,
       tabBarIndicatorStyle: topStyles.tabBarIndicatorStyle,
       tabBarLabelStyle: topStyles.tabBarLabelStyle,
+      safeArea: true,
     },
   );
 
-const TabStackNav = () =>
-  NavigationUtil.createStackNav([
-    {
-      name: 'Hot',
-      screen: Hot,
-    },
-    {
-      name: 'Section',
-      screen: Section,
-    },
-    {
-      name: 'TabStackTopNav',
-      screen: TabStackTopNav,
-      options: {
-        headerShown: false,
-      },
-    },
-  ]);
+// const TabStackNav = () =>
+//   NavigationUtil.createStackNav([
+//     {
+//       name: 'Hot',
+//       screen: Hot,
+//     },
+//     {
+//       name: 'Section',
+//       screen: Section,
+//     },
+//     {
+//       name: 'TabStackTopNav',
+//       screen: TabStackTopNav,
+//       options: {
+//         headerShown: false,
+//       },
+//     },
+//   ]);
 
 const TabNav = () =>
   NavigationUtil.createBottomTabNav(
@@ -105,8 +104,8 @@ const TabNav = () =>
         },
       },
       {
-        name: 'TabStackNav',
-        screen: TabStackNav,
+        name: 'Category',
+        screen: TabStackTopNav,
         options: {
           tabBarIcon: ({color, size}) => (
             <Icon name="user" color={color} size={size} />

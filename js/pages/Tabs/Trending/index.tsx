@@ -19,11 +19,10 @@ function Trending() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: colors.PURPLE,
+    backgroundColor: colors.WHITE,
   },
   content: {
     flex: 1,
-    backgroundColor: colors.GRAY,
   },
 });
 

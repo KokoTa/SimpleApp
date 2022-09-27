@@ -11,26 +11,38 @@ function Index() {
   const [searchKey, setSearchKey] = useState('');
   const [listData, setListData] = useState([]);
   const [refreshing, setRefreshing] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const searchByKey = async () => {
     const res = await getTestApi({searchKey});
-    setRefreshing(true);
-    await new Promise(resolve => {
+    return await new Promise(resolve => {
       setTimeout(() => {
-        setListData(res.data.data);
-        setRefreshing(false);
-        resolve(null);
+        resolve(res.data.data);
       }, 2000);
     });
   };
 
   useEffect(() => {
-    searchByKey();
+    setTimeout(() => {
+      handleReachBottom();
+    }, 100);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleRefresh = () => {
-    searchByKey();
+  const handleRefresh = async () => {
+    setRefreshing(true);
+    const list = await searchByKey();
+    setListData(list as any);
+    setRefreshing(false);
+  };
+
+  const handleReachBottom = async () => {
+    if (!loading) {
+      setLoading(true);
+      const list = (await searchByKey()) as any;
+      setListData([...listData, ...list] as any);
+      setLoading(false);
+    }
   };
 
   return (
@@ -40,14 +52,14 @@ function Index() {
           <TextInput
             style={styles.searchInput}
             onChangeText={text => setSearchKey(text)}
-            onSubmitEditing={searchByKey}
+            onSubmitEditing={handleRefresh}
             placeholder="Search music by key"
           />
           <Icon
             size={24}
             name={'search1'}
             color={colors.PURPLE}
-            onPress={searchByKey}
+            onPress={handleRefresh}
           />
         </View>
       </View>
@@ -55,6 +67,8 @@ function Index() {
         listData={listData}
         refreshing={refreshing}
         onRefresh={handleRefresh}
+        isLoading={loading}
+        onReachBottom={handleReachBottom}
       />
     </SafeAreaView>
   );
@@ -63,12 +77,12 @@ function Index() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: colors.GRAY,
+    backgroundColor: colors.WHITE,
   },
   searchWrap: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 50,
+    paddingVertical: 10,
   },
   searchInputWrap: {
     width: '60%',
