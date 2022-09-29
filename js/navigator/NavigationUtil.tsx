@@ -26,16 +26,26 @@ export default class NavigationUtil {
    * 跳转
    * @param name
    * @param params
+   * @param merge
    * @param navigationParam
    * @returns
    */
-  static to(name: string, params?: any, navigationParam?: NavigationProp<any>) {
+  static to(
+    name: string,
+    params?: any,
+    merge?: boolean,
+    navigationParam?: NavigationProp<any> | null,
+  ) {
     const navigate = NavigationUtil.navigation || navigationParam;
     if (!navigate) {
       console.log('navigation is null');
       return;
     }
-    navigate.navigate(name, params);
+    if (!merge) {
+      navigate.navigate(name, params);
+    } else {
+      navigate.navigate({name, params, merge});
+    }
   }
 
   /**

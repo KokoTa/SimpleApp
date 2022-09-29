@@ -5,6 +5,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {getTestApi} from '../../api';
 import colors from '../../global/colors';
+import EventBus from '../../utils/EventBus';
 import MusicList from './components/MusicList';
 
 function Index() {
@@ -26,6 +27,12 @@ function Index() {
     setTimeout(() => {
       handleReachBottom();
     }, 100);
+
+    // 测试 EventBus
+    EventBus.on('test', (data: any) => {
+      console.log(data);
+      EventBus.remove('test');
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

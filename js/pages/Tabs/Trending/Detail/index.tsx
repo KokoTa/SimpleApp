@@ -15,7 +15,7 @@ function Detail() {
     if (canGoBack) {
       webview.current?.goBack();
     } else {
-      NavigationUtil.back();
+      NavigationUtil.to('Trending', {count: Math.random().toString()}, true); // 返回并携带参数，Trending 监听到参数并打印
     }
   };
 

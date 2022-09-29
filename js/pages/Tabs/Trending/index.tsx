@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,9 +10,18 @@ import RenderHTML from 'react-native-render-html';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import colors from '../../../global/colors';
 import NavigationUtil from '../../../navigator/NavigationUtil';
+import EventBus from '../../../utils/EventBus';
 
-function Trending() {
+function Trending({route}: any) {
   const {width} = useWindowDimensions();
+
+  useEffect(() => {
+    if (route.params?.count) {
+      console.log('route.params.count', route.params?.count);
+      EventBus.emit('test', 'I just call once~'); // 发送事件
+    }
+  }, [route.params?.count]);
+
   return (
     <SafeAreaView
       edges={['top', 'left', 'right']}
