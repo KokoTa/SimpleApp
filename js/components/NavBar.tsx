@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 const NavBar = (props: any) => {
   const {title, renderLeft, renderRight, handleDefaultLeftClick} = props;
@@ -12,12 +13,14 @@ const NavBar = (props: any) => {
           renderLeft
         ) : (
           <TouchableOpacity onPress={handleDefaultLeftClick}>
-            <Text>返回</Text>
+            <Icon name="left" size={18} />
           </TouchableOpacity>
         )}
       </View>
       <View style={styles.titleWrap}>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title} numberOfLines={1}>
+          {title}
+        </Text>
       </View>
       <View>{renderRight}</View>
     </View>

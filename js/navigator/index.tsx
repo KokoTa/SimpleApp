@@ -13,6 +13,7 @@ import {Provider} from 'react-redux';
 import store from '../redux';
 import Toast from 'react-native-toast-message';
 import colors from '../global/colors';
+import Detail from '../pages/Tabs/Trending/Detail';
 
 const topStyles = StyleSheet.create({
   tabBarItemStyle: {
@@ -30,7 +31,7 @@ const topStyles = StyleSheet.create({
   },
 });
 
-const TabStackTopNav = () =>
+const TabTopNav = () =>
   NavigationUtil.createTopNav(
     [
       {
@@ -61,25 +62,6 @@ const TabStackTopNav = () =>
     },
   );
 
-// const TabStackNav = () =>
-//   NavigationUtil.createStackNav([
-//     {
-//       name: 'Hot',
-//       screen: Hot,
-//     },
-//     {
-//       name: 'Section',
-//       screen: Section,
-//     },
-//     {
-//       name: 'TabStackTopNav',
-//       screen: TabStackTopNav,
-//       options: {
-//         headerShown: false,
-//       },
-//     },
-//   ]);
-
 const TabNav = () =>
   NavigationUtil.createBottomTabNav(
     [
@@ -104,8 +86,8 @@ const TabNav = () =>
         },
       },
       {
-        name: 'Category',
-        screen: TabStackTopNav,
+        name: 'TabTop',
+        screen: TabTopNav,
         options: {
           tabBarIcon: ({color, size}) => (
             <Icon name="user" color={color} size={size} />
@@ -131,6 +113,13 @@ const StackNav = () =>
     {
       name: 'TabNav',
       screen: TabNav,
+      options: {
+        headerShown: false,
+      },
+    },
+    {
+      name: 'TrendingDetail',
+      screen: Detail,
       options: {
         headerShown: false,
       },

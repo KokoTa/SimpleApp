@@ -109,6 +109,7 @@ const styles = StyleSheet.create({
   textInput: {
     color: colors.WHITE,
     fontSize: 16,
+    paddingVertical: 0, // Android 会有默认 padding
   },
   buttonWrap: {
     alignItems: 'center',

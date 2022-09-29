@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     width: '90%',
+    paddingVertical: 0, // Android 会有默认 padding
   },
 });
 
