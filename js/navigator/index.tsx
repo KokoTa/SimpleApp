@@ -2,18 +2,19 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import Index from '../pages/Tabs';
 import Trending from '../pages/Tabs/Trending';
-import About from '../pages/Tabs/Fun/About';
+import About from '../pages/Tabs/TabTop/About';
 import Login from '../pages/Login';
 import Icon from 'react-native-vector-icons/AntDesign';
 import NavigationUtil from './NavigationUtil';
-import Desc from '../pages/Tabs/Fun/Desc';
+import Desc from '../pages/Tabs/TabTop/Desc';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {StyleSheet} from 'react-native';
 import {Provider} from 'react-redux';
 import store from '../redux';
 import Toast from 'react-native-toast-message';
 import colors from '../global/colors';
-import Detail from '../pages/Tabs/Trending/Detail';
+import Webview from '../pages/Tabs/Trending/Webview';
+import Parallax from '../pages/Tabs/Trending/Parallax';
 
 const topStyles = StyleSheet.create({
   tabBarItemStyle: {
@@ -118,8 +119,15 @@ const StackNav = () =>
       },
     },
     {
-      name: 'TrendingDetail',
-      screen: Detail,
+      name: 'TrendingWebview',
+      screen: Webview,
+      options: {
+        headerShown: false,
+      },
+    },
+    {
+      name: 'TrendingParallax',
+      screen: Parallax,
       options: {
         headerShown: false,
       },

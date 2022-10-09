@@ -1,7 +1,7 @@
 import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
 import {MaterialTopTabNavigationOptions} from '@react-navigation/material-top-tabs';
 import {NativeStackNavigationOptions} from '@react-navigation/native-stack';
-import React from 'react';
+import {CheckBoxProps} from '@rneui/themed';
 
 declare global {
   interface TabInfo {
@@ -25,5 +25,9 @@ declare global {
   interface ActionType {
     type: string;
     data: any;
+  }
+  interface CheckBoxGroupItem extends CheckBoxProps {
+    value: any;
+    checked: boolean;
   }
 }

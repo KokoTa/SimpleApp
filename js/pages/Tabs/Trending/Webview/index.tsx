@@ -7,7 +7,7 @@ import colors from '../../../../global/colors';
 import useAndroidBackHandler from '../../../../hooks/useAndroidBackHandler';
 import NavigationUtil from '../../../../navigator/NavigationUtil';
 
-function Detail() {
+function Webview() {
   const webview = useRef<WebView>(null);
   const [canGoBack, setCanGoBack] = useState(false);
 
@@ -30,7 +30,9 @@ function Detail() {
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.root}>
       <View style={styles.content}>
         <NavBar
-          title={'Webview Detail Webview Detail Webview Detail Webview Detail'}
+          title={
+            'Webview Webview Webview Webview Webview Webview Webview Webview'
+          }
           handleDefaultLeftClick={handleGoBack}
         />
         <WebView
@@ -70,4 +72,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Detail;
+export default Webview;
