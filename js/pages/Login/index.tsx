@@ -11,6 +11,7 @@ import {TextInput} from 'react-native-gesture-handler';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
 import Icon from 'react-native-vector-icons/AntDesign';
+import ScrollSelect from '../../components/ScrollSelect';
 import colors from '../../global/colors';
 import NavigationUtil from '../../navigator/NavigationUtil';
 import {useAppDispatch, useAppSelector} from '../../redux';
@@ -79,6 +80,8 @@ function Login() {
             <Text style={styles.colorChangeButton}>Change Theme Color</Text>
           </TouchableOpacity>
         </View>
+
+        <ScrollSelect />
       </Animated.View>
     </SafeAreaView>
   );

@@ -16,17 +16,13 @@ function Index() {
 
   const searchByKey = async () => {
     const res = await getTestApi({searchKey});
-    return await new Promise(resolve => {
-      setTimeout(() => {
-        resolve(res.data.data);
-      }, 2000);
-    });
+    return res.data.data;
   };
 
   useEffect(() => {
     setTimeout(() => {
       handleReachBottom();
-    }, 100);
+    }, 100); // 等待渲染完成后再出发
 
     // 测试 EventBus
     EventBus.on('test', (data: any) => {
