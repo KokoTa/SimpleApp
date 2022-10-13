@@ -15,6 +15,7 @@ import Toast from 'react-native-toast-message';
 import colors from '../global/colors';
 import Webview from '../pages/Tabs/Trending/Webview';
 import Parallax from '../pages/Tabs/Trending/Parallax';
+import RNBootSplash from 'react-native-bootsplash';
 
 const topStyles = StyleSheet.create({
   tabBarItemStyle: {
@@ -138,7 +139,7 @@ export const createApp = () => {
   return (
     <Provider store={store}>
       <SafeAreaProvider>
-        <NavigationContainer>
+        <NavigationContainer onReady={() => RNBootSplash.hide()}>
           <StackNav />
         </NavigationContainer>
       </SafeAreaProvider>

@@ -3,7 +3,7 @@
  */
 
 import {AppRegistry} from 'react-native';
-import {createApp as App} from './js/navigator/index';
 import {name as appName} from './app.json';
+import HotPush from './js/utils/HotPush';
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => HotPush);

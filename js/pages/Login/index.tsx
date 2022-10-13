@@ -19,6 +19,7 @@ import {
   onThemeColorChangeAsync,
   selectThemeColor,
 } from '../../redux/reducer/theme';
+import {hotCodeAppUpdate} from '../../utils/HotPush';
 
 function Login() {
   const fadeWrap = useRef(new Animated.Value(0)).current;
@@ -55,7 +56,7 @@ function Login() {
           ...styles.wrap,
           opacity: fadeWrap,
         }}>
-        <Text style={styles.header}>SimpleApp</Text>
+        <Text style={styles.header}>SimpleAppRN</Text>
         <View style={styles.textInputWrap}>
           <TextInput
             style={styles.textInput}
@@ -82,6 +83,12 @@ function Login() {
         </View>
 
         <ScrollSelect />
+
+        <View>
+          <TouchableOpacity onPress={hotCodeAppUpdate}>
+            <Text>Check for updates</Text>
+          </TouchableOpacity>
+        </View>
       </Animated.View>
     </SafeAreaView>
   );
