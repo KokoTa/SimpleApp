@@ -1,6 +1,7 @@
 #import "AppDelegate.h"
 #import "RNBootSplash.h"
 #import <CodePush/CodePush.h>
+#import <RNTUmengAnalytics.h>
 
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
@@ -61,6 +62,11 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
   [self.window makeKeyAndVisible];
 
   [RNBootSplash initWithStoryboard:@"BootSplash" rootView:rootView]; // <- initialization using the storyboard file name
+
+  // 初始化友盟基础库
+  // channel 一般填 App Store，如果有测试环境，可按需填写
+  // debug 表示是否打印调试信息
+  [RNTUmengAnalytics init:@"6348c92088ccdf4b7e48d807" channel:@"App Store" debug:false];
 
   return YES;
 }

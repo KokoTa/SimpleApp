@@ -82,6 +82,10 @@ PODS:
   - fmt (6.2.1)
   - glog (0.3.5)
   - hermes-engine (0.70.1)
+  - HeroUmengAnalytics (0.2.0):
+    - React
+    - UMCommon
+    - UMDevice
   - JWT (3.0.0-beta.14):
     - Base64 (~> 1.1.2)
   - libevent (2.1.12)
@@ -438,6 +442,9 @@ PODS:
     - React-Core
   - SocketRocket (0.6.0)
   - SSZipArchive (2.2.3)
+  - UMCommon (7.3.7):
+    - UMDevice
+  - UMDevice (2.2.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -472,6 +479,7 @@ DEPENDENCIES:
   - FlipperKit/SKIOSNetworkPlugin (= 0.125.0)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - hermes-engine (from `../node_modules/react-native/sdks/hermes/hermes-engine.podspec`)
+  - "HeroUmengAnalytics (from `../node_modules/@react-native-hero/umeng-analytics`)"
   - libevent (~> 2.1.12)
   - OpenSSL-Universal (= 1.1.1100)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
@@ -538,6 +546,8 @@ SPEC REPOS:
     - OpenSSL-Universal
     - SocketRocket
     - SSZipArchive
+    - UMCommon
+    - UMDevice
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -557,6 +567,8 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
   hermes-engine:
     :podspec: "../node_modules/react-native/sdks/hermes/hermes-engine.podspec"
+  HeroUmengAnalytics:
+    :path: "../node_modules/@react-native-hero/umeng-analytics"
   RCT-Folly:
     :podspec: "../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec"
   RCTRequired:
@@ -663,6 +675,7 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
   hermes-engine: 0559c2f978618928913b29b4235fc90f11005ff7
+  HeroUmengAnalytics: dbebce0619f79b662b210ca9409bf02990b459d6
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
@@ -709,6 +722,8 @@ SPEC CHECKSUMS:
   RNVectorIcons: fcc2f6cb32f5735b586e66d14103a74ce6ad61f8
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
+  UMCommon: 37fe35f498e92cf57bbb06a086f02915fc35f211
+  UMDevice: 053478c4b4d7292f31f0a275c227d3c4007a5571
   Yoga: 6c8252e38d65aa387daee699eacf027e055e0b31
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 

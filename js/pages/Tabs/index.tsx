@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, View} from 'react-native';
-import {TextInput} from 'react-native-gesture-handler';
+import {Keyboard, StyleSheet, View} from 'react-native';
+import {
+  TextInput,
+  TouchableWithoutFeedback,
+} from 'react-native-gesture-handler';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {getTestApi} from '../../api';
@@ -50,22 +53,24 @@ function Index() {
 
   return (
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.root}>
-      <View style={styles.searchWrap}>
-        <View style={styles.searchInputWrap}>
-          <TextInput
-            style={styles.searchInput}
-            onChangeText={text => setSearchKey(text)}
-            onSubmitEditing={handleRefresh}
-            placeholder="Search music by key"
-          />
-          <Icon
-            size={24}
-            name={'search1'}
-            color={colors.PURPLE}
-            onPress={handleRefresh}
-          />
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.searchWrap}>
+          <View style={styles.searchInputWrap}>
+            <TextInput
+              style={styles.searchInput}
+              onChangeText={text => setSearchKey(text)}
+              onSubmitEditing={handleRefresh}
+              placeholder="Search music by key"
+            />
+            <Icon
+              size={24}
+              name={'search1'}
+              color={colors.PURPLE}
+              onPress={handleRefresh}
+            />
+          </View>
         </View>
-      </View>
+      </TouchableWithoutFeedback>
       <MusicList
         listData={listData}
         refreshing={refreshing}

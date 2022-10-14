@@ -1,5 +1,5 @@
 import CodePush from 'react-native-code-push';
-import {createApp as App} from '../navigator/index';
+import {CreateApp as App} from '../navigator/index';
 
 const codePushOptions = {checkFrequency: CodePush.CheckFrequency.MANUAL};
 
@@ -49,4 +49,5 @@ export const hotCodeAppUpdate = () => {
   );
 };
 
+// https://github.com/lisong/code-push-demo-app/blob/master/App.js
 export default CodePush(codePushOptions)(App);
