@@ -11,7 +11,6 @@ import {TextInput} from 'react-native-gesture-handler';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Toast from 'react-native-toast-message';
 import Icon from 'react-native-vector-icons/AntDesign';
-import ScrollSelect from '../../components/ScrollSelect';
 import colors from '../../global/colors';
 import NavigationUtil from '../../navigator/NavigationUtil';
 import {useAppDispatch, useAppSelector} from '../../redux';
@@ -81,12 +80,9 @@ function Login() {
             <Text style={styles.colorChangeButton}>Change Theme Color</Text>
           </TouchableOpacity>
         </View>
-
-        <ScrollSelect />
-
-        <View>
+        <View style={styles.buttonWrap}>
           <TouchableOpacity onPress={hotCodeAppUpdate}>
-            <Text>Check for updates</Text>
+            <Text style={styles.colorChangeButton}>Check for updates</Text>
           </TouchableOpacity>
         </View>
       </Animated.View>
@@ -124,6 +120,7 @@ const styles = StyleSheet.create({
   buttonWrap: {
     alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: 10,
   },
   loginButtonIcon: {
     padding: 20,

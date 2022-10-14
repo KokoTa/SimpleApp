@@ -21,6 +21,7 @@ import Parallax from '../pages/Tabs/Trending/Parallax';
 import RNBootSplash from 'react-native-bootsplash';
 import {init, enterPage, leavePage} from '@react-native-hero/umeng-analytics';
 import useAppState from '../hooks/useAppState';
+import {NativeBaseProvider} from 'native-base';
 
 const topStyles = StyleSheet.create({
   tabBarItemStyle: {
@@ -143,44 +144,47 @@ const StackNav = () =>
 export function CreateApp() {
   const navigationRef = useNavigationContainerRef();
   const routeNameRef = useRef<string>('');
+
   // APP 状态
   console.log(useAppState());
 
   return (
     <Provider store={store}>
       <SafeAreaProvider>
-        <NavigationContainer
-          ref={navigationRef}
-          onReady={() => {
-            // 记录初始路由名
-            routeNameRef.current = navigationRef.getCurrentRoute()!.name;
-            // 通过友盟记录页面访问
-            enterPage(routeNameRef.current);
+        <NativeBaseProvider>
+          <NavigationContainer
+            ref={navigationRef}
+            onReady={() => {
+              // 记录初始路由名
+              routeNameRef.current = navigationRef.getCurrentRoute()!.name;
+              // 通过友盟记录页面访问
+              enterPage(routeNameRef.current);
 
-            // 初始化友盟
-            init().then((deviceInfo: any) => {
-              console.log('deviceId:', deviceInfo.deviceId);
-              console.log('deviceType:', deviceInfo.deviceType);
-              console.log('brand:', deviceInfo.brand);
-              console.log('bundleId:', deviceInfo.bundleId);
-            });
+              // 初始化友盟
+              init().then((deviceInfo: any) => {
+                console.log('deviceId:', deviceInfo.deviceId);
+                console.log('deviceType:', deviceInfo.deviceType);
+                console.log('brand:', deviceInfo.brand);
+                console.log('bundleId:', deviceInfo.bundleId);
+              });
 
-            // 关闭Splash
-            RNBootSplash.hide();
-          }}
-          onStateChange={() => {
-            const previousRouteName = routeNameRef.current;
-            const nowRouteName = navigationRef.getCurrentRoute()!.name;
-            console.log(previousRouteName, nowRouteName);
-            // 监听路由变化，通过友盟记录页面访问
-            if (previousRouteName !== nowRouteName) {
-              leavePage(previousRouteName);
-              enterPage(nowRouteName);
-            }
-            routeNameRef.current = nowRouteName;
-          }}>
-          <StackNav />
-        </NavigationContainer>
+              // 关闭Splash
+              RNBootSplash.hide();
+            }}
+            onStateChange={() => {
+              const previousRouteName = routeNameRef.current;
+              const nowRouteName = navigationRef.getCurrentRoute()!.name;
+              console.log(previousRouteName, nowRouteName);
+              // 监听路由变化，通过友盟记录页面访问
+              if (previousRouteName !== nowRouteName) {
+                leavePage(previousRouteName);
+                enterPage(nowRouteName);
+              }
+              routeNameRef.current = nowRouteName;
+            }}>
+            <StackNav />
+          </NavigationContainer>
+        </NativeBaseProvider>
       </SafeAreaProvider>
       <Toast />
     </Provider>

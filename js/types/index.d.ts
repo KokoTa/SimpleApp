@@ -26,7 +26,12 @@ declare global {
     type: string;
     data: any;
   }
-  interface CheckBoxGroupItem extends CheckBoxProps {
+  interface RNECheckBoxGroupItem extends CheckBoxProps {
+    value: any;
+    checked: boolean;
+  }
+  interface NBCheckBoxGroupItem extends ICheckboxProps {
+    title: string;
     value: any;
     checked: boolean;
   }

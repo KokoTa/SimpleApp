@@ -1,41 +1,27 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {
   StyleSheet,
   Text,
   useWindowDimensions,
   View,
   TouchableOpacity,
-  Linking,
+  ScrollView,
 } from 'react-native';
 import RenderHTML from 'react-native-render-html';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import colors from '../../../global/colors';
 import NavigationUtil from '../../../navigator/NavigationUtil';
 import EventBus from '../../../utils/EventBus';
-import Clipboard from '@react-native-clipboard/clipboard';
-import dayjs from 'dayjs';
-import DatePicker from 'react-native-date-picker';
-import CheckBoxGroup from './components/CheckBoxGroup';
+import CustomScrollSelect from './components/CustomScrollSelect';
+import LinkApp from './components/LinkApp';
+import CopyValue from './components/CopyValue';
+import DateSelect from './components/DateSelect';
+import NBActionSheet from './components/NBActionSheet';
+import RNECheckBoxGroup from './components/RNECheckBoxGroup';
+import BottomSheetPanel from './components/BottomSheetPanel';
+import NBCheckBoxGroup from './components/NBCheckBoxGroup';
 
 function Trending({route}: any) {
-  const [copiedText, setCopiedText] = useState('');
-
-  const [list, setList] = useState<CheckBoxGroupItem[]>([
-    {
-      title: 'a',
-      checked: false,
-      value: 1,
-    },
-    {
-      title: 'b',
-      checked: false,
-      value: 2,
-    },
-  ]);
-
-  const [date, setDate] = useState(new Date());
-  const [datePickerShow, setDatePickerShow] = useState(false);
-
   const {width} = useWindowDimensions();
 
   useEffect(() => {
@@ -45,106 +31,78 @@ function Trending({route}: any) {
     }
   }, [route.params?.count]);
 
-  const handleOpenOtherApp = async () => {
-    const url = 'map://';
-    try {
-      await Linking.canOpenURL(url);
-      await Linking.openURL(url);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleCopy = async () => {
-    Clipboard.setString('Hello');
-    setTimeout(async () => {
-      const text = await Clipboard.getString();
-      setCopiedText(text);
-    }, 3000);
-  };
-
-  const handleCheckBoxChange = (item: CheckBoxGroupItem) => {
-    setList(
-      list.map((boxItem: CheckBoxGroupItem) => {
-        if (boxItem.title === item.title) {
-          boxItem.checked = !boxItem.checked;
-        }
-        return boxItem;
-      }),
-    );
-  };
-
-  const handleOpenDatePicker = () => {
-    setDatePickerShow(true);
-  };
-  const handleDatePickerConfirm = (res: any) => {
-    console.log(res);
-    setDatePickerShow(false);
-    setDate(res);
-  };
-
   return (
     <SafeAreaView
       edges={['top', 'left', 'right']}
       mode="padding"
       style={styles.root}>
-      <View style={styles.content}>
-        <View style={styles.item}>
-          <RenderHTML source={{html: '<h1>Hello</h1>'}} contentWidth={width} />
-        </View>
+      <ScrollView style={styles.content}>
+        <View>
+          {/* RenderHTML */}
+          <View style={styles.item}>
+            <RenderHTML
+              source={{html: '<h1>Hello</h1>'}}
+              contentWidth={width}
+            />
+          </View>
 
-        <View style={styles.item}>
-          <TouchableOpacity
-            onPress={() => NavigationUtil.to('TrendingWebview')}>
-            <Text>Go Webview</Text>
-          </TouchableOpacity>
-        </View>
+          {/* Webview */}
+          <View style={styles.item}>
+            <TouchableOpacity
+              onPress={() => NavigationUtil.to('TrendingWebview')}>
+              <Text>Go Webview</Text>
+            </TouchableOpacity>
+          </View>
 
-        <View style={styles.item}>
-          <TouchableOpacity
-            onPress={() => NavigationUtil.to('TrendingParallax')}>
-            <Text>Go Parallax</Text>
-          </TouchableOpacity>
-        </View>
+          {/* Parallax */}
+          <View style={styles.item}>
+            <TouchableOpacity
+              onPress={() => NavigationUtil.to('TrendingParallax')}>
+              <Text>Go Parallax</Text>
+            </TouchableOpacity>
+          </View>
 
-        <View style={styles.item}>
-          <TouchableOpacity onPress={handleOpenOtherApp}>
-            <Text>Open Other App</Text>
-          </TouchableOpacity>
-        </View>
+          {/* Link */}
+          <View style={styles.item}>
+            <LinkApp />
+          </View>
 
-        <View style={styles.item}>
-          <TouchableOpacity onPress={handleCopy}>
-            <Text>Copy Value</Text>
-          </TouchableOpacity>
-          <Text>Show Copy Value: {copiedText}</Text>
-        </View>
+          {/* Copy */}
+          <View style={styles.item}>
+            <CopyValue />
+          </View>
 
-        <View style={styles.item}>
-          <CheckBoxGroup
-            list={list}
-            onPress={handleCheckBoxChange}
-            isInline={true}
-          />
-        </View>
+          {/* RNE checkbox */}
+          <View style={styles.item}>
+            <RNECheckBoxGroup />
+          </View>
 
-        <View style={styles.item}>
-          <TouchableOpacity onPress={handleOpenDatePicker}>
-            <Text>Open DatePicker</Text>
-          </TouchableOpacity>
-          <DatePicker
-            modal
-            mode={'date'}
-            open={datePickerShow}
-            date={date}
-            onConfirm={handleDatePickerConfirm}
-            onCancel={() => {
-              setDatePickerShow(false);
-            }}
-          />
-          <Text>{dayjs(date).format('YYYY-MM-DD HH:mm:ss')}</Text>
+          {/* NB checkbox */}
+          <View style={styles.item}>
+            <NBCheckBoxGroup />
+          </View>
+
+          {/* Date Picker */}
+          <View style={styles.item}>
+            <DateSelect />
+          </View>
+
+          {/* Scroll Select */}
+          <View style={styles.item}>
+            <CustomScrollSelect />
+          </View>
+
+          {/* NB ActionSheet */}
+          <View style={styles.item}>
+            <NBActionSheet />
+          </View>
+
+          {/* Bottom Sheet Panel */}
+          <View style={styles.item}>
+            <BottomSheetPanel />
+          </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
