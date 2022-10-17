@@ -9,7 +9,7 @@ function AxiosSection(props: any) {
 
   const handleAxiosRequest = async () => {
     try {
-      const res = await getTestApi();
+      const res = await getTestApi({});
       setRequestResult(JSON.stringify(res.data));
     } catch (error) {
       console.log(error);
