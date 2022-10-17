@@ -29,9 +29,7 @@ function NBCheckBoxGroup() {
             <Checkbox
               key={index}
               value={item.value}
-              _text={{
-                color: 'red.400',
-              }}>
+              variant={index === 0 ? 'custom' : ''}>
               {item.title}
             </Checkbox>
           ))}

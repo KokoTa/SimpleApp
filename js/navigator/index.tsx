@@ -21,7 +21,7 @@ import Parallax from '../pages/Tabs/Trending/Parallax';
 import RNBootSplash from 'react-native-bootsplash';
 import {init, enterPage, leavePage} from '@react-native-hero/umeng-analytics';
 import useAppState from '../hooks/useAppState';
-import {NativeBaseProvider} from 'native-base';
+import {extendTheme, NativeBaseProvider} from 'native-base';
 
 const topStyles = StyleSheet.create({
   tabBarItemStyle: {
@@ -148,10 +148,30 @@ export function CreateApp() {
   // APP 状态
   console.log(useAppState());
 
+  // 自定义 Native Base 组件样式
+  const theme = extendTheme({
+    components: {
+      Checkbox: {
+        variants: {
+          custom: () => ({
+            _text: {
+              color: 'blue.400',
+            },
+          }),
+        },
+        baseStyle: {
+          _text: {
+            color: 'red.400',
+          },
+        },
+      },
+    },
+  });
+
   return (
     <Provider store={store}>
       <SafeAreaProvider>
-        <NativeBaseProvider>
+        <NativeBaseProvider theme={theme}>
           <NavigationContainer
             ref={navigationRef}
             onReady={() => {
