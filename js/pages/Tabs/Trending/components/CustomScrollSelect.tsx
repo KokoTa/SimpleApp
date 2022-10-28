@@ -15,13 +15,15 @@ function CustomScrollSelect() {
   const handleScrollTo = (y: number) => {
     const ceilIndex = Math.ceil(y / itemHeight);
     const ceilTop = ceilIndex * itemHeight;
-    if (ceilTop - y <= itemHeight / 2) {
+    const offset = ceilTop - y;
+    if (offset < itemHeight / 2) {
       scrollView.current?.scrollTo({
         x: 0,
         y: ceilIndex * itemHeight,
         animated: true,
       });
-    } else {
+    }
+    if (offset > itemHeight / 2) {
       scrollView.current?.scrollTo({
         x: 0,
         y: (ceilIndex - 1) * itemHeight,
@@ -42,7 +44,7 @@ function CustomScrollSelect() {
       if (!isAnimated.current) {
         handleScrollTo(y);
       }
-    }, 10);
+    }, 5);
   };
 
   const handleAnimated = (e: any, isStart: boolean) => {
@@ -59,6 +61,7 @@ function CustomScrollSelect() {
       </View>
       <View style={styles.root}>
         <LinearGradient
+          pointerEvents={'none'}
           style={styles.borderTopWrap}
           colors={['rgba(255, 255, 255, 1)', 'rgba(255, 255, 255, 0)']}>
           <View style={styles.borderTop} />
@@ -83,6 +86,7 @@ function CustomScrollSelect() {
           </View>
         </ScrollView>
         <LinearGradient
+          pointerEvents={'none'}
           style={styles.borderBottomWrap}
           colors={['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 1)']}
           start={{x: 0, y: 0}}
