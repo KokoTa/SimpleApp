@@ -20,9 +20,14 @@ import NBActionSheet from './components/NBActionSheet';
 import RNECheckBoxGroup from './components/RNECheckBoxGroup';
 import BottomSheetPanel from './components/BottomSheetPanel';
 import NBCheckBoxGroup from './components/NBCheckBoxGroup';
+import ShareMessage from './components/ShareMessage';
+import MaskedText from './components/MaskedText';
+import {useAppDispatch} from '../../../redux';
+import {onVisibleChange} from '../../../redux/reducer/modal';
 
 function Trending({route}: any) {
   const {width} = useWindowDimensions();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (route.params?.count) {
@@ -100,6 +105,23 @@ function Trending({route}: any) {
           {/* Bottom Sheet Panel */}
           <View style={styles.item}>
             <BottomSheetPanel />
+          </View>
+
+          {/* Share */}
+          <View style={styles.item}>
+            <ShareMessage />
+          </View>
+
+          {/* Masked View */}
+          <View style={styles.item}>
+            <MaskedText />
+          </View>
+
+          {/* Global Modal */}
+          <View style={styles.item}>
+            <TouchableOpacity onPress={() => dispatch(onVisibleChange(true))}>
+              <Text>Show Modal</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>

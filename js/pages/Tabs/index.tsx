@@ -19,7 +19,7 @@ function Index() {
 
   const searchByKey = async () => {
     const res = await getTestApi({searchKey});
-    return res.data.data;
+    return res.data;
   };
 
   useEffect(() => {

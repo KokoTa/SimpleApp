@@ -22,6 +22,7 @@ import RNBootSplash from 'react-native-bootsplash';
 import {init, enterPage, leavePage} from '@react-native-hero/umeng-analytics';
 import useAppState from '../hooks/useAppState';
 import {extendTheme, NativeBaseProvider} from 'native-base';
+import GlobalModal from '../components/GlobalModal';
 
 const topStyles = StyleSheet.create({
   tabBarItemStyle: {
@@ -203,6 +204,7 @@ export function CreateApp() {
               routeNameRef.current = nowRouteName;
             }}>
             <StackNav />
+            <GlobalModal />
           </NavigationContainer>
         </NativeBaseProvider>
       </SafeAreaProvider>
