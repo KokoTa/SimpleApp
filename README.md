@@ -26,3 +26,7 @@
 22. [react-native-localize](https://github.com/zoontek/react-native-localize): 多语言
 23. [react-native-image-picker](https://github.com/react-native-image-picker/react-native-image-picker): 图片选择器
 24. [react-native-fit-image](https://github.com/huiseoul/react-native-fit-image): 图片自适应
+
+## 开发问题解决列表
+
+* [真机调试问题](https://github.com/facebook/react-native/issues/29396)

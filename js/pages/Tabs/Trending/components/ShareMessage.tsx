@@ -18,9 +18,6 @@ function ShareMessage() {
 
   return (
     <>
-      <View>
-        <Text>Share Message</Text>
-      </View>
       <View style={styles.root}>
         <TouchableOpacity onPress={() => handleShare()}>
           <Text>Share Message</Text>

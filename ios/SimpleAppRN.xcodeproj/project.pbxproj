@@ -445,6 +445,8 @@
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-SimpleAppRN-SimpleAppRNTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				DEVELOPMENT_TEAM = 2NXW58TTC5;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -472,7 +474,9 @@
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-SimpleAppRN-SimpleAppRNTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 2NXW58TTC5;
 				INFOPLIST_FILE = SimpleAppRNTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (

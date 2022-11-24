@@ -1,21 +1,11 @@
 import React, {useState} from 'react';
 import {Platform, Text, TouchableOpacity, View} from 'react-native';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
 import {uploadApi} from '../../../../api';
 import FitImage from 'react-native-fit-image';
 
 function ImagePicker() {
   const [imageUrl, setImageUrl] = useState('');
-
-  const handleCamera = async () => {
-    const result = await launchCamera({
-      mediaType: 'photo',
-      quality: 0.5,
-      saveToPhotos: true,
-      cameraType: 'back',
-    });
-    console.log(result);
-  };
 
   const handleImageLibrary = async () => {
     const result = await launchImageLibrary({
@@ -43,9 +33,6 @@ function ImagePicker() {
 
   return (
     <View>
-      <TouchableOpacity onPress={() => handleCamera()}>
-        <Text>Open Camera</Text>
-      </TouchableOpacity>
       <TouchableOpacity onPress={() => handleImageLibrary()}>
         <Text>Open Image Library</Text>
       </TouchableOpacity>
