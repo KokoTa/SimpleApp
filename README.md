@@ -23,3 +23,6 @@
 19. [react-native-bootsplash](https://github.com/zoontek/react-native-bootsplash): 启动图
 20. [@react-native-hero/umeng-analytics](https://github.com/react-native-hero/umeng-analytics): 友盟统计
 21. [@react-native-masked-view/masked-view](https://github.com/react-native-masked-view/masked-view): 蒙版视图
+22. [react-native-localize](https://github.com/zoontek/react-native-localize): 多语言
+23. [react-native-image-picker](https://github.com/react-native-image-picker/react-native-image-picker): 图片选择器
+24. [react-native-fit-image](https://github.com/huiseoul/react-native-fit-image): 图片自适应

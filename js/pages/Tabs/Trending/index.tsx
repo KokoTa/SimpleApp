@@ -24,6 +24,8 @@ import ShareMessage from './components/ShareMessage';
 import MaskedText from './components/MaskedText';
 import {useAppDispatch} from '../../../redux';
 import {onVisibleChange} from '../../../redux/reducer/modal';
+import LocalizeText from './components/LocalizeText';
+import ImagePicker from './components/ImagePicker';
 
 function Trending({route}: any) {
   const {width} = useWindowDimensions();
@@ -122,6 +124,16 @@ function Trending({route}: any) {
             <TouchableOpacity onPress={() => dispatch(onVisibleChange(true))}>
               <Text>Show Modal</Text>
             </TouchableOpacity>
+          </View>
+
+          {/* i18n */}
+          <View style={styles.item}>
+            <LocalizeText />
+          </View>
+
+          {/* Image Picker */}
+          <View style={styles.item}>
+            <ImagePicker />
           </View>
         </View>
       </ScrollView>
