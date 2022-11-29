@@ -69,6 +69,18 @@ function Trending({route}: any) {
             </TouchableOpacity>
           </View>
 
+          {/* Funny */}
+          <View style={styles.item}>
+            <TouchableOpacity
+              onPress={() =>
+                NavigationUtil.to('TrendingFunny', {
+                  message: 'some words',
+                })
+              }>
+              <Text>Go Funny</Text>
+            </TouchableOpacity>
+          </View>
+
           {/* Link */}
           <View style={styles.item}>
             <LinkApp />

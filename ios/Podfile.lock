@@ -82,7 +82,7 @@ PODS:
   - fmt (6.2.1)
   - glog (0.3.5)
   - hermes-engine (0.70.1)
-  - HeroUmengAnalytics (0.2.0):
+  - HeroUmengAnalytics (0.2.2):
     - React
     - UMCommon
     - UMDevice
@@ -690,7 +690,7 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
   hermes-engine: 0559c2f978618928913b29b4235fc90f11005ff7
-  HeroUmengAnalytics: dbebce0619f79b662b210ca9409bf02990b459d6
+  HeroUmengAnalytics: e52567d6f6a70b2b6ea65cf499eaf8aa5c764ebd
   JWT: ef71dfb03e1f842081e64dc42eef0e164f35d251
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c

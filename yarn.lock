@@ -2106,10 +2106,10 @@
   resolved "https://registry.npmmirror.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.2.0.tgz#7d6d789ae8edf73dc9bed1246cd48277edea8066"
   integrity sha512-o6aam+0Ug1xGK3ABYmBm0B1YuEKfM/5kaoZO0eHbZwSpw9UzDX4G5y4Nx/K20FHqUmJHkZmLvOUFYwN4N+HqKA==
 
-"@react-native-hero/umeng-analytics@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.npmmirror.com/@react-native-hero/umeng-analytics/-/umeng-analytics-0.2.0.tgz#09590daa7ec52a28c46a5c4ff9938bb297ffb09b"
-  integrity sha512-xUsbBBKODFPu6wE45uflUjuusmKRnjvtJVxLordRbfDdgkLE185Qx/rXAb7HOQNw44mZLsArmgNf8MoHya3TwA==
+"@react-native-hero/umeng-analytics@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.npmmirror.com/@react-native-hero/umeng-analytics/-/umeng-analytics-0.2.2.tgz#f031537e38265530072c8cc38e73b29a5545f985"
+  integrity sha512-hYzLR4xkWQkaDRlj0AcDrECJoIowrlFH8N7PtPk8BKkMzVdknQTslcvSrV/Iwl5FlPequf0UolsdM5kiArLE+A==
 
 "@react-native-masked-view/masked-view@^0.2.8":
   version "0.2.8"

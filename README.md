@@ -16,7 +16,7 @@
 12. [@gorhom/bottom-sheet](https://github.com/gorhom/react-native-bottom-sheet): 底部弹窗
 13. [react-native-share](https://github.com/react-native-share/react-native-share): 分享组件
 14. [@react-native-async-storage/async-storage](https://github.com/react-native-async-storage/async-storage): 本地存储
-15. [@react-navigation/material-top-tabs]: 顶部 tab 导航
+15. [@react-navigation/material-top-tabs](https://reactnavigation.org/docs/getting-started/): 顶部 tab 导航
 16. [@react-navigation/native](https://reactnavigation.org/docs/getting-started/): 导航基础包
 17. [@react-navigation/bottom-tabs](https://reactnavigation.org/docs/getting-started/): 底部导航
 18. [@react-navigation/native-stack](https://reactnavigation.org/docs/getting-started/): 堆栈导航

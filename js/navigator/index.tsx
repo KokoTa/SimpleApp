@@ -23,6 +23,7 @@ import {init, enterPage, leavePage} from '@react-native-hero/umeng-analytics';
 import useAppState from '../hooks/useAppState';
 import {extendTheme, NativeBaseProvider} from 'native-base';
 import GlobalModal from '../components/GlobalModal';
+import Funny from '../pages/Tabs/Trending/Funny';
 
 const topStyles = StyleSheet.create({
   tabBarItemStyle: {
@@ -111,36 +112,46 @@ const TabNav = () =>
   );
 
 const StackNav = () =>
-  NavigationUtil.createStackNav([
-    {
-      name: 'Login',
-      screen: Login,
-      options: {
-        headerShown: false,
+  NavigationUtil.createStackNav(
+    [
+      {
+        name: 'Login',
+        screen: Login,
+        options: {
+          headerShown: false,
+        },
       },
-    },
-    {
-      name: 'TabNav',
-      screen: TabNav,
-      options: {
-        headerShown: false,
+      {
+        name: 'TabNav',
+        screen: TabNav,
+        options: {
+          headerShown: false,
+        },
       },
-    },
-    {
-      name: 'TrendingWebview',
-      screen: Webview,
-      options: {
-        headerShown: false,
+      {
+        name: 'TrendingWebview',
+        screen: Webview,
+        options: {
+          headerShown: false,
+        },
       },
-    },
-    {
-      name: 'TrendingParallax',
-      screen: Parallax,
-      options: {
-        headerShown: false,
+      {
+        name: 'TrendingParallax',
+        screen: Parallax,
+        options: {
+          headerShown: false,
+        },
       },
+      {
+        name: 'TrendingFunny',
+        screen: Funny,
+        options: {},
+      },
+    ],
+    {
+      headerTintColor: colors.PURPLE,
     },
-  ]);
+  );
 
 export function CreateApp() {
   const navigationRef = useNavigationContainerRef();
