@@ -2,7 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import Colors from '../../style/Colors';
+import GlobalStyle from '../../style/GlobalStyle';
 
 function Login() {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
@@ -17,7 +17,7 @@ function Login() {
             screen: 'Home',
           });
         }}>
-        <Text style={styles.button}>Go Home</Text>
+        <Text style={GlobalStyle.ButtonText}>Go Home</Text>
       </TouchableOpacity>
       <TouchableOpacity
         activeOpacity={0.5}
@@ -29,7 +29,7 @@ function Login() {
             },
           });
         }}>
-        <Text style={styles.button}>Go TrendingHot</Text>
+        <Text style={GlobalStyle.ButtonText}>Go TrendingHot</Text>
       </TouchableOpacity>
     </View>
   );
@@ -40,13 +40,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  button: {
-    backgroundColor: Colors.Purple,
-    padding: 10,
-    color: Colors.White,
-    margin: 10,
-    borderRadius: 5,
   },
 });
 

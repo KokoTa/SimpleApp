@@ -10,7 +10,11 @@ function IndexBottomTabs() {
   return (
     <BottomTab.Navigator>
       <BottomTab.Screen name="Home" component={Home} />
-      <BottomTab.Screen name="TrendingTopTabs" component={TrendingTopTabs} />
+      <BottomTab.Screen
+        name="TrendingTopTabs"
+        component={TrendingTopTabs}
+        options={{headerShown: false}}
+      />
       <BottomTab.Screen name="Account" component={Account} />
     </BottomTab.Navigator>
   );
