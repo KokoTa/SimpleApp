@@ -2,7 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import GlobalStyle from '../../style/GlobalStyle';
+import GlobalStyle from '../../../styles/GlobalStyle';
 
 function Login() {
   const navigation = useNavigation<NativeStackNavigationProp<any>>();
@@ -30,6 +30,12 @@ function Login() {
           });
         }}>
         <Text style={GlobalStyle.ButtonText}>Go TrendingHot</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Webview');
+        }}>
+        <Text style={GlobalStyle.ButtonText}>Go Webview</Text>
       </TouchableOpacity>
     </View>
   );

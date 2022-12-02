@@ -8,8 +8,8 @@ import {
   View,
 } from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
-import {uploadApi} from '../api';
-import GlobalStyle from '../style/GlobalStyle';
+import {uploadApi} from '../../api';
+import GlobalStyle from '../../styles/GlobalStyle';
 
 function UploadFileDemo() {
   const [imageUrl, setImageUrl] = useState('');

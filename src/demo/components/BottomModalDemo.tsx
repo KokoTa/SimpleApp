@@ -2,8 +2,8 @@ import React, {useRef} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {BottomSheetModal} from '@gorhom/bottom-sheet';
 import {FlatList} from 'react-native-gesture-handler';
-import GlobalStyle from '../style/GlobalStyle';
-import BottomModal from '../component/BottomModal';
+import GlobalStyle from '../../styles/GlobalStyle';
+import BottomModal from '../../components/BottomModal';
 
 function BottomModalDemo() {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);

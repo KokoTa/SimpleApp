@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import React, {useState} from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 import DatePicker from 'react-native-date-picker';
-import GlobalStyle from '../style/GlobalStyle';
+import GlobalStyle from '../../styles/GlobalStyle';
 
 function DatePickerDemo() {
   const [date, setDate] = useState(new Date());
@@ -27,6 +27,7 @@ function DatePickerDemo() {
         mode={'date'}
         open={datePickerShow}
         date={date}
+        locale="zh-Hans"
         onConfirm={handleDatePickerConfirm}
         onCancel={() => {
           setDatePickerShow(false);
