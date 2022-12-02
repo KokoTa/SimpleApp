@@ -6,6 +6,7 @@ import DatePickerDemo from '../../../components/DatePickerDemo';
 import GlobalModalDemo from '../../../components/GlobalModalDemo';
 import LocalizeDemo from '../../../components/LocalizeDemo';
 import ShareDemo from '../../../components/ShareDemo';
+import SkeletonDemo from '../../../components/SkeletonDemo';
 import SwiperDemo from '../../../components/SwiperDemo';
 import UploadFileDemo from '../../../components/UploadFileDemo';
 
@@ -24,6 +25,7 @@ function Home() {
           <DatePickerDemo />
           <ShareDemo />
           <LocalizeDemo />
+          <SkeletonDemo />
         </>
       )}
     />
