@@ -21,7 +21,10 @@ const BottomModal = React.forwardRef((props: any, ref: Ref<any>) => {
           props.handleComponent ? props.handleComponent : BottomSheetHandle
         }
         activeOffsetX={[-999, 999]}
-        activeOffsetY={[-5, 5]}>
+        activeOffsetY={[-5, 5]}
+        detached={props.detached}
+        bottomInset={props.bottomInset}
+        style={{marginHorizontal: props.marginHorizontal}}>
         {props.children}
       </BottomSheetModal>
     </BottomSheetModalProvider>
@@ -45,6 +48,9 @@ BottomModal.propTypes = {
   snapPoints: PropTypes.array, // modal 显示比例
   onBlur: PropTypes.func, // modal 点击外部回调
   handleComponent: PropTypes.node, // modal 头部操作组件
+  detached: PropTypes.bool, // 是否卡片模式
+  bottomInset: PropTypes.number, // 卡片模式下距离底部的距离
+  marginHorizontal: PropTypes.number, // 卡片模式下距离左右的距离
 };
 
 export default BottomModal;

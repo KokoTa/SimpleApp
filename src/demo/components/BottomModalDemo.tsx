@@ -24,7 +24,9 @@ function BottomModalDemo() {
       <BottomModal
         ref={bottomSheetModalRef}
         snapPoints={snapPoints}
-        onBlur={handlePresentModalClose}>
+        onBlur={handlePresentModalClose}
+        detached={true}
+        bottomInset={10}>
         <FlatList
           data={Array(40)
             .fill(0)
@@ -38,7 +40,7 @@ function BottomModalDemo() {
 
 const styles = StyleSheet.create({
   wrap: {
-    height: 200,
+    height: 400,
   },
 });
 

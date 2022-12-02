@@ -4,11 +4,14 @@ import {FlatList} from 'react-native-gesture-handler';
 import BottomModalDemo from '../../../components/BottomModalDemo';
 import DatePickerDemo from '../../../components/DatePickerDemo';
 import GlobalModalDemo from '../../../components/GlobalModalDemo';
+import InputNumberDemo from '../../../components/InputNumberDemo';
 import LocalizeDemo from '../../../components/LocalizeDemo';
+import NetworkInfoDemo from '../../../components/NetworkInfoDemo';
 import ShareDemo from '../../../components/ShareDemo';
 import SkeletonDemo from '../../../components/SkeletonDemo';
 import SwiperDemo from '../../../components/SwiperDemo';
 import UploadFileDemo from '../../../components/UploadFileDemo';
+import ValidCodeDemo from '../../../components/ValidCodeDemo';
 
 function Home() {
   return (
@@ -19,6 +22,7 @@ function Home() {
       ListFooterComponent={() => (
         <>
           <SwiperDemo />
+          <ValidCodeDemo />
           <GlobalModalDemo />
           <BottomModalDemo />
           <UploadFileDemo />
@@ -26,6 +30,8 @@ function Home() {
           <ShareDemo />
           <LocalizeDemo />
           <SkeletonDemo />
+          <InputNumberDemo />
+          <NetworkInfoDemo />
         </>
       )}
     />

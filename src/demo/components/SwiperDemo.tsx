@@ -5,7 +5,7 @@ import Swiper from 'react-native-swiper';
 function SwiperDemo() {
   return (
     <View style={styles.swiperWrap}>
-      <Swiper>
+      <Swiper autoplay={true}>
         <View style={styles.swiperItem}>
           <Image
             style={styles.swiperImage}
