@@ -13,7 +13,7 @@ function Login() {
       <TouchableOpacity
         activeOpacity={0.5}
         onPress={() => {
-          navigation.navigate('HomeBottomTabs', {
+          navigation.replace('HomeBottomTabs', {
             screen: 'Home',
           });
         }}>

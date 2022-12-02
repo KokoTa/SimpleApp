@@ -15,13 +15,14 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {StyleSheet} from 'react-native';
 import {store} from './src/reducer';
 import {Provider} from 'react-redux';
+import RNBootSplash from 'react-native-bootsplash';
 import Root from './src/demo/pages';
 
 const App = () => {
   return (
     <Provider store={store}>
       <GestureHandlerRootView style={styles.wrap}>
-        <NavigationContainer>
+        <NavigationContainer onReady={() => RNBootSplash.hide({fade: true})}>
           <Root />
         </NavigationContainer>
       </GestureHandlerRootView>
