@@ -8,6 +8,7 @@ import GlobalModalDemo from '../../../components/GlobalModalDemo';
 import InputNumberDemo from '../../../components/InputNumberDemo';
 import LocalizeDemo from '../../../components/LocalizeDemo';
 import NetworkInfoDemo from '../../../components/NetworkInfoDemo';
+import SelectionDemo from '../../../components/SelectionDemo';
 import ShareDemo from '../../../components/ShareDemo';
 import SkeletonDemo from '../../../components/SkeletonDemo';
 import StepDemo from '../../../components/StepDemo';
@@ -23,6 +24,7 @@ function Home() {
       renderItem={() => null}
       ListFooterComponent={() => (
         <>
+          <SelectionDemo />
           <SwiperDemo />
           <ValidCodeDemo />
           <GlobalModalDemo />
